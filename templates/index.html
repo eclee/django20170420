@@ -10,10 +10,9 @@
     <h1>歡迎光臨我的部落格</h1>
     <hr>
     {% for post in posts %}
-        <p style='font-family:微軟正黑體;font-size:16pt;font-weight:bold;'>
-            {{ post.title }}
+        <p style='font-family:微軟正黑體;font-size:14pt;font-weight:bold;'>
+            <a href='/post/{{post.slug}}'>{{ post.title }}</a>
         </p>
-        <p style='font-family:微軟正黑體;font-size:10pt;letter-spacing:1pt;'>{{ post.body }} </p>
     {% endfor %}
     <hr>
     <h3>現在時刻：{{ now }}</h3>
