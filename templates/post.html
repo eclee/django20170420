@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <title>
-        歡迎光臨我的部落格
-    </title>
-</head>
-<body>
-    <h1>{{ post.title }}</h1>
-    <hr>
+<!-- post.html -->
+{% extends 'base.html' %}
+{% block title %} {{ post.title }} - 文學天地 {% endblock %}
+{% block headmessage %}
+    <h3 style='font-family:微軟正黑體;'>{{ post.title }}</h3>
+    <a style='font-family:微軟正黑體;' href='/'>回首頁</a>
+{% endblock %}
+{% block content %} 
         <p style='font-family:微軟正黑體;font-size:12pt;letter-spacing:2pt;'>
             {{ post.body }}</a>
         </p>
-    <hr>
-    <h3><a href='/'>回首頁</a></h3>
-</body>
-</html>
+{% endblock %}
