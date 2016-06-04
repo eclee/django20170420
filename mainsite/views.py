@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from datetime import datetime
 from .models import Post
+import markdown
 
 # Create your views here.
 def homepage(request):
@@ -10,6 +11,7 @@ def homepage(request):
     posts = Post.objects.all()
     now = datetime.now()
     html = template.render(locals())
+    html = markdown.markdown(html)
     return HttpResponse(html)
 
 def showpost(request, slug):
@@ -18,6 +20,7 @@ def showpost(request, slug):
         post = Post.objects.get(slug=slug)
         if post != None:
             html = template.render(locals())
+            html = markdown.markdown(html)
             return HttpResponse(html)
     except:
         return redirect('/')
